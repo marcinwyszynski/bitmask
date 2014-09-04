@@ -5,8 +5,8 @@ import (
 )
 
 func TestSuccess(t *testing.T) {
-	nums := []uint64{0, 2, 6, 23}
-	var bound uint64 = 24
+	nums := []uint64{0, 2, 6, 63}
+	var bound uint64 = 64
 	mask, err := To(bound, nums)
 	if err != nil {
 		t.Fatalf("To(bound, nums) err = %v, expected nil", err)

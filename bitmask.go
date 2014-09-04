@@ -14,7 +14,7 @@ func To(bound uint64, nums []uint64) (uint64, error) {
 	}
 	var result uint64 = 0
 	for _, num := range nums {
-		if num > bound {
+		if num > (bound - 1) {
 			return 0, fmt.Errorf("num (%d) > bound (%d)", num, bound)
 		}
 		result = result | (1 << num)
@@ -30,7 +30,7 @@ func From(bound, mask uint64) ([]uint64, error) {
 	}
 	result := make([]uint64, 0)
 	var i uint64 = 0
-	for ; i <= bound; i++ {
+	for ; i < bound; i++ {
 		if (mask & (1 << i)) != 0 {
 			result = append(result, i)
 		}
